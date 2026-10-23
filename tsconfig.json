@@ -12,6 +12,8 @@
     "lib": ["esnext"],
     "types": ["node"],
     "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
 
     // Other Outputs
     "sourceMap": true,

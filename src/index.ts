@@ -1,11 +1,13 @@
-import express, { type Request, type Response } from "express";
+import express from "express";
+import { env } from "./config/env.ts";
+import { authRoutes } from "./routes/auth.routes.ts";
 
 const app = express();
-const port = 3000;
+const port = env.PORT || 3000;
 
-app.get("/", (_req: Request, res: Response) => {
-  res.json({ ok: true, message: "Success" });
-});
+app.use(express.json());
+
+app.use("/auth", authRoutes);
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
